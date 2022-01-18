@@ -8,8 +8,19 @@
           <tr>
             <th scope="col">Username</th>
             <th scope="col">Clan</th>
-            <th scope="col">Honour</th>
-            <th scope="col">Overal Rank</th>
+            <th scope="col">
+              Honour
+              <span class="sort-by-honour" (click)="sortByHonour()">
+                <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
+              </span>
+
+            </th>
+            <th scope="col">
+              Overal Rank
+              <span class="sort-by-rank" (click)="sortByRank()">
+                <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
+              </span>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>

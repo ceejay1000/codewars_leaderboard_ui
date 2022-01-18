@@ -8,24 +8,26 @@
 </main> -->
 
 <header>
+    <nav class="navbar navbar-light bg-light">
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
+        
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#" routerLink="/leaderboard">LeaderBoard</a>
+                  <a class="nav-link" routerLinkActive="active" aria-current="page" href="#" routerLink="/leaderboard">LeaderBoard</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" routerLinkActive="active" href="#" routerLink="/add-user">Add User</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" routerLinkActive="active" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
+                  <a class="nav-link disabled " routerLinkActive="active">Disabled</a>
                 </li>
               </ul>
-          </nav>
+        
     </div>
+</nav>
 </header>
 
 <router-outlet></router-outlet>

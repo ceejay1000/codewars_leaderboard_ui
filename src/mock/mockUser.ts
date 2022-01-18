@@ -15,7 +15,7 @@ export function getUsers(){
                     "rank": -7
                 }
             ],
-            "overall_rank": -6
+            "overall_rank": -7
         },
         {
             "username": "test-name",
@@ -49,7 +49,7 @@ export function getUsers(){
                     "rank": -7
                 }
             ],
-            "overall_rank": -6
+            "overall_rank": -10
         },
         {
             "username": "Damien",
@@ -83,7 +83,7 @@ export function getUsers(){
                     "rank": -7
                 }
             ],
-            "overall_rank": -6
+            "overall_rank": -2
         },
         {
             "username": "Johnson",
@@ -100,7 +100,7 @@ export function getUsers(){
                     "rank": -7
                 }
             ],
-            "overall_rank": -6
+            "overall_rank": -3
         }
     ]
 
