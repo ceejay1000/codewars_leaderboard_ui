@@ -1,0 +1,29 @@
+<main class="bg-light">
+   <div class="container">
+       <div class="text-center m-3">
+           <h2>Leader Board</h2>
+       </div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Clan</th>
+            <th scope="col">Honour</th>
+            <th scope="col">Overal Rank</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.clan}}</td>
+            <td>{{ user.honour }}</td>
+            <td>{{ user.overall_rank}}</td>
+            <td>
+                <button class="btn btn-success">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</main>

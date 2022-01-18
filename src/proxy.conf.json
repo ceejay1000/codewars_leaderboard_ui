@@ -1,0 +1,6 @@
+{
+    "/https://www.codewars.com/api/*": {
+    "target": "/v1/leaderboard",
+    "secure": false
+    }
+}
