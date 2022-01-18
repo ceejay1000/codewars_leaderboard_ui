@@ -20,7 +20,7 @@
             <td>{{ user.honour }}</td>
             <td>{{ user.overall_rank}}</td>
             <td>
-                <button class="btn btn-success">Details</button>
+                <a class="btn btn-success" [routerLink]="['/user-details', user.username]">Details</a>
             </td>
           </tr>
         </tbody>
