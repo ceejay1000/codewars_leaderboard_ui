@@ -10,31 +10,57 @@
             <th scope="col">Clan</th>
             <th scope="col">
               Honour
-              <span class="sort-by-honour" (click)="sortByHonour()">
+              <span 
+                class="sort-by-honour" 
+                (click)="sortByHonour('descending')" 
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="Sort in honour in descending order"
+                *ngIf="sortHonourInDescendingOrder === true"
+                >
                 <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
               </span>
-              <!-- <span class="sort-by-rank" (click)="sortByRank()">
+              <span 
+                class="sort-by-rank" 
+                (click)="sortByHonour('ascending')"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="Sort in honour in ascending order"
+                *ngIf="sortHonourInDescendingOrder !== true"
+                >
                 <img src="https://img.icons8.com/material/24/000000/sort-up--v2.png"/>
-              </span> -->
+              </span>
             </th>
             <th scope="col">
               Overal Rank
-              <span class="sort-by-rank" (click)="sortByRank()">
+              <span 
+                class="sort-by-rank" 
+                (click)="sortByRank('descending')" 
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="Sort in rank in descending order"
+                *ngIf="sortRankInDescendingOrder === true">
                 <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
               </span>
-              <!-- <span class="sort-by-rank" (click)="sortByRank()">
+              <span 
+                class="sort-by-rank" 
+                (click)="sortByRank('ascending')"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="Sort in rank in ascending order"
+                *ngIf="sortRankInDescendingOrder !== true">
                 <img src="https://img.icons8.com/material/24/000000/sort-up--v2.png"/>
-              </span> -->
+              </span>
             </th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.username }}</td>
-            <td>{{ user.clan}}</td>
-            <td>{{ user.honour }}</td>
-            <td>{{ user.overall_rank}}</td>
+          <tr *ngFor="let user of codewarsUsers">
+            <td>{{ user?.username }}</td>
+            <td>{{ user?.clan}}</td>
+            <td>{{ user?.honour }}</td>
+            <td>{{ user?.overall_rank}}</td>
             <td>
                 <a class="btn btn-success" [routerLink]="['/user-details', user.username]">Details</a>
             </td>

@@ -1,0 +1,96 @@
+<main class="mt-4">
+    <div class="container">
+        <div class="input-group mb-4 w-50 mx-auto">
+            <label class="input-group-text" for="inputGroupSelect01">Languages</label>
+            <select 
+                class="form-select" 
+                id="inputGroupSelect01" 
+                name="leaderboard-language" 
+                [ngModel]="language"
+                #selectlanguage
+                (change)="onSelect(selectlanguage.value)"
+                >
+              <option value="java">Java</option>
+              <option value="kotlin">Kotlin</option>
+              <option value="python">Python</option>
+              <option value="typescript">Typescript</option>
+              <option value="javascript">Javascript</option>
+              <option value="scala">Scala</option>
+            </select>
+          </div>
+        
+          <div class="bg-light">
+        <table class="table table-striped">
+            <thead>
+                  
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Clan</th>
+                    <th scope="col">
+                      Honour
+                      <!-- <span 
+                        class="sort-by-honour" 
+                        (click)="sortByHonour('descending')" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="Sort in honour in descending order"
+                        *ngIf="sortHonourInDescendingOrder === true"
+                        >
+                        <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
+                      </span> -->
+                      <!-- <span 
+                        class="sort-by-rank" 
+                        (click)="sortByHonour('ascending')"
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="Sort in honour in ascending order"
+                        *ngIf="sortHonourInDescendingOrder !== true"
+                        >
+                        <img src="https://img.icons8.com/material/24/000000/sort-up--v2.png"/>
+                      </span> -->
+                    </th>
+                    <th scope="col">
+                      Language Rank
+                      <!-- <span 
+                        class="sort-by-rank" 
+                        (click)="sortByRank('descending')" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="Sort in rank in descending order"
+                        *ngIf="sortRankInDescendingOrder === true">
+                        <img src="https://img.icons8.com/material/24/000000/sort-down--v2.png"/>
+                      </span>
+                      <span 
+                        class="sort-by-rank" 
+                        (click)="sortByRank('ascending')"
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="Sort in rank in ascending order"
+                        *ngIf="sortRankInDescendingOrder !== true">
+                        <img src="https://img.icons8.com/material/24/000000/sort-up--v2.png"/>
+                      </span> -->
+                    </th>
+                    <th scope="col">
+                        Overall Rank
+                    </th>
+                  </tr>
+            </thead>
+            <tbody *ngIf="leaderboardByLanguage.length > 0">
+                    <tr *ngFor="let user of leaderboardByLanguage">
+                        <td>{{ user?.username }}</td>
+                        <td>{{ user?.clan}}</td>
+                        <td>{{ user?.honour }}</td>
+                        <td>{{ user?.languageRank }}</td>
+                        <td>{{ user?.overallRank}}</td>
+                    </tr>
+                  
+            </tbody>
+            <tbody *ngIf="leaderboardByLanguage.length === 0" >
+                <div class="text-center">
+                    <p>No data to display</p>
+                </div>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</main>
