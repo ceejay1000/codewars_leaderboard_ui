@@ -11,6 +11,7 @@ interface User {
     overall_rank: number
 }
 
+
 @Component({
   selector: 'app-view-users',
   templateUrl: './view-users.component.html',
@@ -18,29 +19,50 @@ interface User {
 })
 export class ViewUsersComponent implements OnInit {
   users: User[] = [];
-  codewarsUsers!: object;
-  leaderboardUrl: string = ""
+  codewarsUsers!: User[];
+  leaderboardUrl: string = "http://localhost:8081/v1/leaderboard"
+  sortRankInDescendingOrder: boolean = true;
+  sortHonourInDescendingOrder: boolean = true;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.users = getUsers();
 
-    this.http.get(this.leaderboardUrl).subscribe(leaderboardData => {
+    this.http.get<User[]>(this.leaderboardUrl).subscribe(leaderboardData => {
       this.codewarsUsers = leaderboardData;
     })
   }
 
-  sortByHonour(){
-    this.users = this.users.slice().sort(function(a, b){
+  sortByHonour(sortType: string){
+    this.sortHonourInDescendingOrder = !this.sortHonourInDescendingOrder;
+    console.log(sortType)
+    if (sortType === "descending"){
+      this.sortHonourInDescendingOrder = false;
+      this.codewarsUsers = this.codewarsUsers.slice().sort(function(a, b){
         return a.honour - b.honour;
     } )
+    } else {
+      this.sortHonourInDescendingOrder = true;
+      this.codewarsUsers = this.codewarsUsers.slice().sort(function(a, b){
+        return b.honour - a.honour;
+    } )
+    }
   }
 
-  sortByRank(){
-    this.users = this.users.slice().sort(function(a, b){
+  sortByRank(sortType: string){
+    this.sortRankInDescendingOrder = !this.sortRankInDescendingOrder;
+    if (sortType === "descending") {
+      this.sortRankInDescendingOrder = false;
+      this.codewarsUsers = this.codewarsUsers.slice().sort(function(a, b){
         return a.overall_rank - b.overall_rank;
+      })
+    } else {
+      this.sortRankInDescendingOrder = true;
+      this.codewarsUsers = this.codewarsUsers.slice().sort(function(a, b){
+        return b.overall_rank - a.overall_rank;
     } )
+    }
   }
 
 }

@@ -9,6 +9,8 @@ import { ViewUsersComponent } from './view-users/view-users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { LanguageLeaderboardComponent } from './language-leaderboard/language-leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { HomeComponent } from './home/home.component';
     ViewUsersComponent,
     UserDetailsComponent,
     AddUserComponent,
-    HomeComponent
+    HomeComponent,
+    LanguageLeaderboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

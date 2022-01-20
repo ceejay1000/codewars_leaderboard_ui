@@ -6,15 +6,34 @@
     <div class="container w-50 mt-4">
         <div class="card form-card">
             <div class="card-body bg-grey">
-                <form>
+                <form (ngSubmit)="onSubmit()" #addUserForm="ngForm">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">
                             <img src="https://img.icons8.com/material-sharp/24/000000/user-male-circle.png"/>
                         </span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Username" 
+                            aria-label="Username" 
+                            aria-describedby="addon-wrapping"
+                            name="username"
+                            ngModel
+                            required
+                            [ngStyle]="{'border': addUserForm.form.status === 'INVALID' && addUserForm.form.touched === true ? '1px solid red': ''}"
+                            >
+                        
                       </div>
+                      <div *ngIf="addUserForm.form.status === 'INVALID' && addUserForm.form.touched === true">
+                        <p style="color: red;">All fields are required</p>
+                    </div>
                       <div class="text-center">
-                          <button class="btn btn-success mt-4">Submit</button>
+                          <button 
+                            class="btn btn-success mt-4" 
+                            [disabled]="addUserForm.form.pristine === true && addUserForm.form.touched === true"
+                            >
+                            Submit
+                        </button>
                       </div>
                 </form>
             </div>
